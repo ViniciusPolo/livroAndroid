@@ -17,11 +17,6 @@ import com.example.helloandroidstudio.ui.theme.HelloAndroidStudioTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.v(TAG,"log de Verbose")
-        Log.d(TAG,"log de Debug")
-        Log.i(TAG,"log de Info")
-        Log.w(TAG,"log de Alerta")
-        Log.e(TAG, throw RuntimeException("teste de erro"))
         setContent {
             HelloAndroidStudioTheme {
                 // A surface container using the 'background' color from the theme
