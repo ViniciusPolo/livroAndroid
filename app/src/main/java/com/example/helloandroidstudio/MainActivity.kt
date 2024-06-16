@@ -41,6 +41,12 @@ class MainActivity : ComponentActivity() {
         Log.i(TAG,"log de Stop")
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        // When we quit app, and dead Activity
+        Log.i(TAG,"log de Destroy")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
