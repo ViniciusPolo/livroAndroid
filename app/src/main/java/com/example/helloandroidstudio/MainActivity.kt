@@ -1,8 +1,11 @@
 package com.example.helloandroidstudio
 
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -15,10 +18,34 @@ import org.w3c.dom.Text
 
 
 class MainActivity : ComponentActivity() {
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG,"log de Start")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        // When we leave the app but not closed this one
+        Log.i(TAG,"log de Restart")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // When we leave the app but not closed this one
+        Log.i(TAG,"log de Pause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // When we quit app
+        Log.i(TAG,"log de Stop")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
         val btLogin = findViewById<Button>(R.id.btLogin)
+        val btForgot = findViewById<Button>(R.id.btForgot)
         btLogin.setOnClickListener {
             val tLogin = findViewById<TextView>(R.id.tLogin)
             val tSenha = findViewById<TextView>(R.id.tSenha)
@@ -31,9 +58,13 @@ class MainActivity : ComponentActivity() {
 
             }
         }
+        btForgot.setOnClickListener {
+            showAlert(this, "Esqueceu?", "Envairemos um email para recuperação")
+        }
 
     }
 }
+
 
 fun showAlert(context: Context, title: String, message: String) {
     val builder = AlertDialog.Builder(context)
